@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <title>Search</title>
+	<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+.previous {
+  background-color: #04AA6D;
+  color: black;
+}
+
+.next {
+  background-color: #04AA6D;
+  color: black;
+} 
+table {  
+    border-collapse: collapse;  
+} 
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+ 
+tr:nth-child(even) {background-color: #f2f2f2;} 
+</style>
+ </head>
+ <body>
+<!--
+    <jsp:include page="_header.jsp"></jsp:include>
+    <jsp:include page="_menu.jsp"></jsp:include>
+-->
+<!-- -->
+<div>
+<a>Login > Search Customer </a>
+</div>
+  <br>
+  </br>
+<div>
+  <div style="float: left">
+     <a>Welcome ABC</a>
+  </div>
+
+  <div style="float: right; text-align: right;">
+     <a href="${url}"><u>Log Out</u></a>
+
+  </div>
+  </div>
+    <!-- -->
+	  <!-- -->
+  <div>
+  <br>
+  <br>
+  </br>
+  <div style="background: blue; height: 20px;"></div>
+  </div>
+    <!-- -->
+  <!-- -->
+  </div>
+  <div>
+  <br>
+  
+  </br>
+  <div style="background: yellow; padding-top:35px; height: 60px; text-align:center">
+	  <form action="" method="POST" > 
+  <label>Customer Name&ensp;</label>
+  <input type="text" id="name" name="name">
+  <label>&emsp;&emsp;Sex&ensp;</label>
+  <select name="sex" id="sex">
+  <option></option>
+    <option value="1">Male</option>
+    <option value="2">Female</option>
+  </select>
+    <label>&emsp;&emsp;Birthday&ensp;</label>
+  <input type="text" size="6" id="" name="">
+    <label>~</label>
+  <input type="text" size="6" id="" name="">
+  <a>&emsp;&emsp;&emsp;</a>
+  <input type="submit" value="Search">
+</form>
+	  </div>
+  </div>
+  <!-- -->
+  <br>
+    <!-- -->  <!-- -->
+    <!-- -->
+	  <!-- -->
+<div>
+  <div style="float: left">
+		<a type="button" class="previous">&laquo;</a>
+		<a type="button" class="previous">&#8249;</a>
+		<a>Previous</a>&nbsp;
+  </div>
+
+  <div style="float: right; text-align: right;">
+		<a>Next</a>&nbsp;
+		<a href="#" class="next">&#8250;</a>
+		<a href="#" class="next">&raquo;</a>
+
+  </div>
+  </div>
+  <br>
+   <br>
+    <!-- -->
+	  <!-- -->
+	<form action="#" method="post">
+				<table frame="border" frameborder="1" width="100%">
+					<tr bgcolor="green">
+						<th>
+							<div class="form-group select-all">
+							<input type="checkbox" name="allids" id="checkall">
+							</div>
+						</th>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Sex</th>
+						<th>Birthday</th>
+						<th>Address</th>
+					</tr>					
+						<tr>
+							<td>
+								<div class="form-group">
+								<input type="checkbox" name="ids" id="checks" value="1"> 
+								</div>
+							</td>
+							<td>
+								<a href="${url}">100101</a>
+							</td>
+							<td>name</td>
+							<td>Female</td>
+							<td>department</td>
+							<td>department</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+								<input type="checkbox" name="ids" id="checks" value="2"> 
+								</div>
+							</td>
+							<td>
+								<a href="${url}">100102</a>
+							</td>
+							<td>name</td>
+							<td>Female</td>
+							<td>department</td>
+							<td>department</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+								<input type="checkbox" name="ids" id="checks" value="3"> 
+								</div>
+							</td>
+							<td>
+								<a href="${url}">100103</a>
+							</td>
+							<td>name</td>
+							<td>Female</td>
+							<td>department</td>
+							<td>department</td>
+						</tr>
+						<tr>
+							<td>
+								<div class="form-group">
+								<input type="checkbox" name="ids" id="checks" value="4"> 
+								</div>
+							</td>
+							<td>
+								<a href="${url}">100104</a>
+							</td>
+							<td>name</td>
+							<td>Female</td>
+							<td>department</td>
+							<td>department</td>
+						</tr>
+				</table>
+				<input type="button" value="Add New" 
+					onclick="location.href='#'">
+				<input type="submit" value="Delete">
+	</form>
+<!-- -->
+ <!--   <jsp:include page="_footer.jsp"></jsp:include> -->
+<script>
+	const selectAll = document.querySelector('.form-group.select-all input');
+	const checkboxs = document.querySelectorAll('.form-group:not(.select-all) input');
+	let listBoolean = [];
+	checkboxs.forEach(item=> {
+		item.addEventListener('change', function () {
+			checkboxs.forEach(i=> {
+				listBoolean.push(i.checked);
+			})
+			if(listBoolean.includes(false)){
+				selectAll.checked = false;
+			} else {
+				selectAll.checked = true;
+			}
+			listBoolean = []
+		})
+	})
+	selectAll.addEventListener('change', function () {
+		if(this.checked) {
+			checkboxs.forEach(i=> {
+				i.checked = true;
+			})
+		} else {
+			checkboxs.forEach(i=> {
+				i.checked = false;
+			})
+		}
+	})
+</script>
+ </body>
+</html>
